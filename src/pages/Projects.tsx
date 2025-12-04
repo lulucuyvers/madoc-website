@@ -147,7 +147,7 @@ export function Projects() {
                 className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300"
               />
               <p className="mt-0 group-hover:text-blue-600 transition-colors duration-300">
-                <span>{project.title}</span> <span style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '15px', fontStyle: 'italic' }}>— {project.location}</span>
+                <span>{project.title}</span> {project.location && <span style={{ fontFamily: '"Times New Roman", Times, serif', fontSize: '15px', fontStyle: 'italic' }}> — {project.location}</span>}
               </p>
             </Link>
           ))}

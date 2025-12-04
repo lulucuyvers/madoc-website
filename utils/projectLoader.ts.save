@@ -1,0 +1,86 @@
+import matter from 'gray-matter';
+
+export interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  mainImage: string;
+  gallery: string[];
+  date: string;
+  location?: string;
+}
+
+export async function loadProjects(): Promise<Project[]> {
+  const projectFiles = import.meta.glob('/content/projects/*.md', { as: 'raw', eager: true });
+  
+  const projects: Project[] = [];
+  
+  for (const [path, content] of Object.entries(projectFiles)) {
+    const { data } = matter(content as string);
+    const slug = path.split('/').pop()?.replace('.md', '') || '';
+    
+    projects.push({
+      slug,
+      title: data.title || '',
+      description: data.description || '',
+      mainImage: data.mainImage || '',
+      gallery: Array.isArray(data.gallery) ? data.gallery : [],
+      date: data.date || '',
+      location: data.location || '',
+    });
+  }
+  
+  return projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export async function getAllProjects(): Promise<Project[]> {
+  return loadProjects();
+}
+
+export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  const projects = await loadProjects();
+  return projects.find(p => p.slug === slug) || null;
+}typescript
+import matter from 'gray-matter';
+
+export interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  mainImage: string;
+  gallery: string[];
+  date: string;
+  location?: string;
+}
+
+export async function loadProjects(): Promise<Project[]> {
+  const projectFiles = import.meta.glob('/content/projects/*.md', { as: 'raw', eager: true });
+  
+  const projects: Project[] = [];
+  
+  for (const [path, content] of Object.entries(projectFiles)) {
+    const { data } = matter(content as string);
+    const slug = path.split('/').pop()?.replace('.md', '') || '';
+    
+    projects.push({
+      slug,
+      title: data.title || '',
+      description: data.description || '',
+      mainImage: data.mainImage || '',
+      gallery: Array.isArray(data.gallery) ? data.gallery : [],
+      date: data.date || '',
+      location: data.location || '',
+    });
+  }
+  
+  return projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+export async function getAllProjects(): Promise<Project[]> {
+  return loadProjects();
+}
+
+export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  const projects = await loadProjects();
+  return projects.find(p => p.slug === slug) || null;
+}XXXXX
