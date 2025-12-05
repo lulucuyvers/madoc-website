@@ -1,4 +1,3 @@
-import image_fdbb1cacdc29a37ef2a7abf9f71fff65baf60f45 from 'figma:asset/fdbb1cacdc29a37ef2a7abf9f71fff65baf60f45.png';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
@@ -21,7 +20,7 @@ const mockProjects: Project[] = [
     title: "De Poorten",
     location: "Stam, Gent",
     slug: "de-poorten",
-    mainImage: image_fdbb1cacdc29a37ef2a7abf9f71fff65baf60f45,
+    mainImage: "https://images.unsplash.com/photo-1568515387631-8b650bbcdb90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     description: "",
     extraImages: []
   },
