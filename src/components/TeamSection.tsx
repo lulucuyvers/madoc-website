@@ -1,5 +1,3 @@
-import image_700443aea8012441d20c6c5f9002bc3a295ec437 from 'figma:asset/700443aea8012441d20c6c5f9002bc3a295ec437.png';
-import image_bc5d035b0ee3007d3a8f16688c06dd2de4429a7d from 'figma:asset/bc5d035b0ee3007d3a8f16688c06dd2de4429a7d.png';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 const coreTeam = [
@@ -7,13 +5,13 @@ const coreTeam = [
     id: 1,
     name: 'Benny Kerkhof',
     role: 'Storyteller & zaakvoerder',
-    image: image_bc5d035b0ee3007d3a8f16688c06dd2de4429a7d,
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
   },
   {
     id: 2,
     name: 'Lulu Cuyvers',
     role: 'Scenograaf',
-    image: image_700443aea8012441d20c6c5f9002bc3a295ec437,
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400',
   },
 ];
 
